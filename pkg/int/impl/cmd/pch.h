@@ -4,6 +4,7 @@
 // Common
 #include <iostream>
 #include <tuple>
+#include <string>
 
 // Boost
 #include <boost/program_options.hpp>

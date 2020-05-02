@@ -25,19 +25,6 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     endif ()
 endif ()
 
-
-# Fetch Content
-include(FetchContent)
-# Formatting library
-FetchContent_Declare(
-        fmtlib
-        GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-        GIT_TAG 6.2.0
-)
-
-# Adds fmtlib the global scope
-FetchContent_MakeAvailable(fmtlib)
-
 # Make external libraries and libraries globally available.
 add_subdirectory(pkg)
 

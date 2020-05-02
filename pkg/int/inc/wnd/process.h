@@ -1,10 +1,13 @@
 #ifndef WND_PROCESS_H_
 #define WND_PROCESS_H_
-#include <string>
+#include <iostream>
 
+// Perform basic operations around
+// windows specific functions.
 namespace wnd
 {
-	void KillProcessByClassName(std::string s);
+	// Kill any running processes that match class name s.
+	void KillProcessByClassName(std::string_view s);
 }
 
 #endif //WND_PROCESS_H_

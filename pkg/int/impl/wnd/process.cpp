@@ -14,7 +14,7 @@ void killProcess(HWND hWnd)
 
 BOOL CALLBACK killProcessByClassName(HWND hWnd, LPARAM lCKill)
 {
-	const auto cKill = *reinterpret_cast<const std::string*>(lCKill);
+	const auto cKill = *reinterpret_cast<std::string_view*>(lCKill);
 	char cName[cKill.length()];
 	GetClassName(hWnd, cName, static_cast<int>(cKill.length()) + 1);
 	if (cName == cKill)
@@ -24,7 +24,7 @@ BOOL CALLBACK killProcessByClassName(HWND hWnd, LPARAM lCKill)
 	return true;
 }
 
-void wnd::KillProcessByClassName(const std::string s)
+void wnd::KillProcessByClassName(std::string_view s)
 {
 	EnumWindows(killProcessByClassName, reinterpret_cast<LPARAM>(&s));
 }

@@ -8,6 +8,6 @@ target_compile_features(mvbuild PRIVATE cxx_std_17)
 target_link_libraries(mvbuild PRIVATE
         cmd::cmd
         wnd::wnd
-        fmt::fmt)
+        cp::cp)
 
 
