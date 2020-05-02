@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(MVBuild
+project(mvbuild
         VERSION 1.0
         DESCRIPTION "Example of a CMake with Boost, internal library, and PCH setup."
         LANGUAGES CXX)
@@ -11,8 +11,10 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     # Optionally set things like CMAKE_CXX_STANDARD, CMAKE_POSITION_INDEPENDENT_CODE here
     set(CMAKE_CXX_STANDARD 17)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
-    # Let's ensure -std=c++xx instead of -std=g++xx
+    # Ensure -std=c++xx instead of -std=g++xx
     set(CMAKE_CXX_EXTENSIONS OFF)
+    # Enable exceptions for clang-cl
+    set(CMAKE_CXX_FLAGS /EHa)
 
     # Docs only available if this is the main app
     find_package(Doxygen)
@@ -30,7 +32,7 @@ include(FetchContent)
 FetchContent_Declare(
         fmtlib
         GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-        GIT_TAG 5.3.0
+        GIT_TAG 6.2.0
 )
 
 # Adds fmtlib the global scope

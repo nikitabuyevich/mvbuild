@@ -1,4 +1,3 @@
-#include <cmd/parse.h>
 #include <iostream>
 #include <tuple>
 #include <boost/program_options.hpp>
@@ -7,7 +6,7 @@ namespace bpo = boost::program_options;
 
 namespace cmd
 {
-	std::tuple<std::string, std::string, std::string> parse(int argc, char** argv)
+	std::tuple<std::string, std::string, std::string> Parse(int argc, char** argv)
 	{
 		bpo::options_description
 			desc
